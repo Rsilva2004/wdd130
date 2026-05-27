@@ -1,3 +1,5 @@
+/*I added the box-shadow, changed the colors and followed the requirements as I understood*/
+
 :root {
     --primary-color: #781818;
     --secondary-color: #ab1313;
@@ -20,12 +22,6 @@ body {
     color: var(--accent1-color);
     background-color: #f4f1ea;
     ;
-}
-
-header {
-    padding: 20px;
-    background-color: #bbb8b8;
-    border-radius: 15px;
 }
 
 header,
@@ -55,6 +51,9 @@ header {
     display: grid;
     grid-template-columns: 200px auto;
     align-items: center;
+    padding: 20px;
+    background-color: #bbb8b8;
+    border-radius: 15px;
 }
 
 nav {
@@ -119,6 +118,7 @@ footer {
     width: 50px;
 }
 
+/*History(subtitles)*/
 .history h2 {
     text-align: center;
 }
