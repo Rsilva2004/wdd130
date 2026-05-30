@@ -2,13 +2,9 @@
 
 :root {
     --primary-color: #781818;
-    --secondary-color: #ab1313;
     --accent1-color: #000000;
-    --accent2-color: #4a4949;
-
     --heading-font: Georgia, serif;
     --body-font: Arial, sans-serif;
-
 }
 
 * {
