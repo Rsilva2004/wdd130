@@ -1,0 +1,104 @@
+// Current - Set audit URL path
+const auditURL = `/wdd130/wwr/about.html`;
+const course = 'wdd130';
+const week = 'w04';
+
+// #region Setup and Common Utilities *****************************
+import { AuditSetup } from './utils/auditSetup.js';
+import { getAuditURL as getAuditURLHelper } from './utils/getAuditURL.js';
+import { setupEventListeners } from './utils/setupEventListeners.js';
+
+const setup = new AuditSetup();
+// #endregion Setup and Common Utilities ***************************************
+
+// #region Imports ******************************************
+import { resetReport } from './utils/resetReport.js';
+import { parseHTML } from './utils/parseHTML.js';
+import { plainHTML } from './utils/plainHTML.js';
+import { displayGitHubLinks } from './views/displayGitHubLinks.js';
+
+import { checkFolderImages } from './tests/checkFolderImages.js';
+import { checkFolderStyles } from './tests/checkFolderStyles.js';
+
+import { checkFileNamingConventions } from './tests/checkFileNamingConventions.js';
+import { validateHTML } from './utils/validateHTML.js';
+import { validateCSS } from './utils/validateCSS.js';
+import { checkHTMLDoc } from './tests/checkHTMLDoc.js';
+import { checkCapitalizedTags } from './tests/checkCapitalizedTags.js';
+import { checkHTMLAttributeSpacing } from './tests/checkHTMLAttributeSpacing.js';
+import { checkHeadContent } from './tests/checkHeadContent.js';
+import { checkMetaDescription } from './tests/checkMetaDescription.js';
+import { checkMetaAuthor } from './tests/checkMetaAuthor.js';
+import { wdd130w04htmlbody } from './course/wdd130-w04-htmlbody.js';
+
+import { getCSS } from './utils/getCSS.js';
+import { getCSSLinks } from './utils/getCSSLinks.js';
+import { checkCSSLink } from './tests/checkCSSLink.js';
+import { checkCSSUsage } from './tests/checkCSSUsage.js';
+import { checkUseGoogleFontsAPI } from './tests/checkUseGoogleFontsAPI.js';
+import { wdd130w04css } from './course/wdd130-w04-css.js';
+import { checkColorContrast } from './tests/checkColorContrast.js';
+import { checkUniversalSelector } from './tests/checkUniversalSelector.js';
+
+// #endregion Imports ***************************************
+
+// #region Event Listeners - Run Audit *****************************
+// Wrapper function for getAuditURL
+async function getAuditURL() {
+  return await getAuditURLHelper(setup, auditURL, course);
+}
+
+// Setup event listeners
+setupEventListeners(setup, getAuditURL, buildReport);
+// #endregion Event Listeners - Run Audit *****************************
+
+async function buildReport(url) {
+  resetReport();
+  let parsedHTML = await parseHTML(url);
+  let textHTML = await plainHTML(url);
+  let css = await getCSS(url);
+
+  const githubUsername = setup.getExtractedUsername();
+
+  // Extract subdir from the auditURL - directory immediately after wdd130/
+  let subdir = '';
+  try {
+    const urlObj = new URL(url);
+    const pathMatch = urlObj.pathname.match(/\/wdd130\/([^/]+)/);
+    if (pathMatch && pathMatch[1]) {
+      subdir = pathMatch[1];
+    }
+  } catch {
+    // If extraction fails, leave subdir empty
+  }
+
+  displayGitHubLinks(url, course);
+
+  await checkFolderImages(githubUsername, course, subdir);
+  await checkFolderStyles(githubUsername, course, subdir);
+  checkFileNamingConventions(parsedHTML);
+
+  await validateHTML(url, textHTML);
+  await checkHTMLDoc(parsedHTML, textHTML);
+  checkCapitalizedTags(textHTML);
+  checkHTMLAttributeSpacing(textHTML);
+  checkHeadContent(textHTML, course, week);
+  checkMetaDescription(parsedHTML)
+  checkMetaAuthor(parsedHTML);
+  await wdd130w04htmlbody(parsedHTML, url, css);
+
+  await getCSSLinks(parsedHTML, 1);
+  await checkCSSLink(url, parsedHTML, 'styles/rafting.css');
+  await checkUseGoogleFontsAPI(parsedHTML, css, false);
+  await validateCSS(url);
+  await checkCSSUsage(parsedHTML);
+  await wdd130w04css(css);
+  await checkUniversalSelector(css);
+  await checkColorContrast(parsedHTML, css);
+
+}
+
+
+
+
+
