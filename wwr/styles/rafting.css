@@ -31,6 +31,7 @@ h1,
 h2 {
     font-family: var(--heading-font);
     color: var(--primary-color);
+    position: ;
 }
 
 nav,
@@ -186,5 +187,14 @@ footer {
 
 .employees {
     display: flex;
+    gap: 2rem;
+}
 
+.map {
+    display: flex;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
 }
