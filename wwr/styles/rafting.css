@@ -3,6 +3,9 @@
 :root {
     --primary-color: #3a0000;
     --accent1-color: #000000;
+    --background-color: #f4f1ea;
+    --section-bg-color: #969393;
+    --form-bg-color: #eeeeee;
     --heading-font: Georgia, serif;
     --body-font: Arial, sans-serif;
 }
@@ -16,7 +19,7 @@
 body {
     font-family: var(--body-font);
     color: var(--accent1-color);
-    background-color: #f4f1ea;
+    background-color: var(--background-color);
     ;
 }
 
@@ -169,7 +172,7 @@ footer {
 
 section {
     margin: 40px 0;
-    background-color: #969393;
+    background-color: var(--section-bg-color);
     padding: 20px;
     border-radius: 15px;
 }
@@ -196,19 +199,15 @@ form label {
 }
 
 form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
     width: 650px;
     margin: 0 auto;
     padding: 1rem;
     border: 1px solid rgb(0 0 0 / 0.1);
     border-radius: 0.5rem;
-    background-color: #eee;
-    display: grid;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+    background-color: var(--form-bg-color);
 }
 
 .employees {
