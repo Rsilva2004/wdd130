@@ -268,3 +268,30 @@ form {
 .block_2 p {
     margin: 0;
 }
+
+.go-to-trips {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    margin: 40px auto;
+    padding: 30px;
+
+    background-color: #bbb8b8;
+    border-radius: 15px;
+
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.go-to-trips a {
+    margin-top: 15px;
+    padding: 12px 25px;
+
+    background-color: #3a0000;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+
+    border-radius: 8px;
+}
