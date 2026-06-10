@@ -23,6 +23,29 @@ body {
     ;
 }
 
+.cta {
+    text-align: center;
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: bold;
+    transition: 0.3s ease;
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 25px;
+    background-color: var(--background-color);
+    color: var(--accent1-color);
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+}
+
+.cta a:hover {
+    color: black;
+    background-color: var(--section-bg-color);
+    transform: translateY(-2px);
+    transition: 0.3s ease;
+}
+
 header,
 main,
 footer {
@@ -64,6 +87,23 @@ nav a {
     text-decoration: none;
     color: var(--primary-color);
     font-weight: bold;
+    transition: 0.3s ease;
+}
+
+nav a:hover {
+    color: white;
+    background-color: var(--primary-color);
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.go-to-trips a {
+    transition: 0.3s ease;
+}
+
+.go-to-trips a:hover {
+    background-color: #5a0000;
+    transform: translateY(-2px);
 }
 
 /* HERO */
@@ -293,4 +333,59 @@ form {
     font-weight: bold;
 
     border-radius: 8px;
+}
+
+.trips {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.trips img {
+    width: 100%;
+    height: auto;
+}
+
+.trip_1,
+.trip_2,
+.trip_3 {
+    background: var(--form-bg-color);
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: #000000;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.trip_1:hover,
+.trip_2:hover,
+.trip_3:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+
+th {
+    background-color: #3a0000;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f5f5f5;
+}
+
+tr:hover {
+    background-color: #eaeaea;
 }
