@@ -1,0 +1,185 @@
+/*I added the box-shadow, changed the colors and followed the requirements as I understood*/
+
+:root {
+    --primary-color: #781818;
+    --accent1-color: #000000;
+    --heading-font: Georgia, serif;
+    --body-font: Arial, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--body-font);
+    color: var(--accent1-color);
+    background-color: #f4f1ea;
+    ;
+}
+
+header,
+main,
+footer {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+h1,
+h2 {
+    font-family: var(--heading-font);
+    color: var(--primary-color);
+}
+
+nav,
+p,
+section,
+article {
+    margin: 16px;
+    padding: 8px;
+}
+
+/* HEADER */
+
+header {
+    display: grid;
+    grid-template-columns: 200px auto;
+    align-items: center;
+    padding: 20px;
+    background-color: #bbb8b8;
+    border-radius: 15px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+/* HERO */
+
+.hero {
+    position: relative;
+}
+
+.hero img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.hero h1 {
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    padding: 16px;
+    text-align: center;
+    opacity: 0.7;
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.hero article {
+    position: absolute;
+    top: 120px;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.hero article img {
+    float: right;
+    width: 125px;
+    margin-left: 15px;
+}
+
+/* FOOTER */
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.socialmedia a {
+    text-decoration: none;
+}
+
+.socialmedia img {
+    width: 50px;
+}
+
+/*History(subtitles)*/
+.history h2 {
+    text-align: center;
+}
+
+.history-content {
+    display: grid;
+    grid-template-columns: 1fr 300px 1fr;
+    align-items: center;
+    gap: 20px;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #262626;
+    text-align: justify;
+}
+
+.history-content img {
+    width: 300px;
+    height: auto;
+}
+
+.adventures h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.adventure-gallery {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+
+}
+
+.adventure-gallery figure {
+    text-align: center;
+    flex: 1;
+}
+
+.adventure-gallery img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.adventure-gallery figcaption {
+    margin-top: 5px;
+    font-size: 15px;
+    font-style: italic;
+    color: var(--primary-color);
+}
+
+section {
+    margin: 40px 0;
+    background-color: #969393;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+section,
+header,
+footer {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.552);
+}
